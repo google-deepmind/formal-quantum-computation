@@ -21,6 +21,7 @@ public import QuantumComputation.Algorithms.Grover.EarlyStopping
 public import QuantumComputation.Algorithms.Grover.EarlyStoppingAnalysis
 public import QuantumComputation.Algorithms.Grover.Operators
 public import QuantumComputation.Algorithms.Grover.SimpleGrover
+public import QuantumComputation.Algorithms.Grover.TwoQubitOvershoot
 public import QuantumComputation.Algorithms.Grover.Verification
 public import QuantumComputation.Algorithms.Hadamard.MeasureLoop
 public import QuantumComputation.Algorithms.QFT.Operators
