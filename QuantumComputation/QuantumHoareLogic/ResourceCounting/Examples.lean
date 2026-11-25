@@ -16,6 +16,7 @@ limitations under the License.
 module
 
 public import QuantumComputation.QuantumHoareLogic.ResourceCounting.CostBounds
+import QuantumComputation.QuantumHoareLogic.ResourceCounting.Additivity
 import QuantumComputation.QuantumHoareLogic.ResourceCounting.Loops
 
 /-! # A short example file showing how to use the resource-counting framework. -/
@@ -23,7 +24,7 @@ import QuantumComputation.QuantumHoareLogic.ResourceCounting.Loops
 @[expose] public section
 
 open Operator QProg QProg.Notation
-open scoped Matrix
+open scoped Matrix NNReal
 open Store (Expr)
 
 namespace ResourceCounting.Examples
@@ -48,6 +49,25 @@ theorem program_bound (unitary : Unitary d) (x : Var) :
       ((CostBound.qAssign (weightedModel d) unitary).seq
         (CostBound.assign (weightedModel d) x (1 : Expr Var)))
   norm_num [weightedModel] at h
+  exact h
+
+/-- Recover the same bound by combining the assignment bound of 2 with the quantum bound of 10. -/
+theorem program_bound_from_parts (unitary : Unitary d) (x : Var) :
+    CostBound (weightedModel d) (program unitary x) 12 := by
+  let writes : CostModel d := { CostModel.zero d with assignmentCost := 2 }
+  let quantum := { weightedModel d with assignmentCost := 0 }
+  have bound (m : CostModel d) : CostBound m (program unitary x)
+      ((m.resetCost : ℝ≥0) + ((m.unitaryCost unitary : ℝ≥0) + m.assignmentCost)) :=
+    (CostBound.qSet m).seq ((CostBound.qAssign m unitary).seq (CostBound.assign m x 1))
+  have hw : CostBound writes (program unitary x) 2 := by
+    simpa [writes, CostModel.zero] using bound writes
+  have hq : CostBound quantum (program unitary x) 10 := by
+    convert bound quantum using 1
+    norm_num [quantum, weightedModel]
+  have hmodel : writes.addWeights quantum = weightedModel d := rfl
+  have h := hw.addWeights hq
+  rw [hmodel] at h
+  norm_num at h
   exact h
 
 /-- Under `oracleCalls`, a single oracle application has expected cost equal to the initial mass. -/

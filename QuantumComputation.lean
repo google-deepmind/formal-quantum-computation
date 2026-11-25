@@ -56,6 +56,7 @@ public import QuantumComputation.QuantumHoareLogic.CleanAncilla
 public import QuantumComputation.QuantumHoareLogic.Expectation
 public import QuantumComputation.QuantumHoareLogic.QMonad
 public import QuantumComputation.QuantumHoareLogic.ResourceCounting
+public import QuantumComputation.QuantumHoareLogic.ResourceCounting.Additivity
 public import QuantumComputation.QuantumHoareLogic.ResourceCounting.CostBounds
 public import QuantumComputation.QuantumHoareLogic.ResourceCounting.Examples
 public import QuantumComputation.QuantumHoareLogic.ResourceCounting.Loops
