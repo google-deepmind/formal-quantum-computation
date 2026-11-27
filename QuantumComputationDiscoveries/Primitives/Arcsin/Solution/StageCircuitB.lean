@@ -3920,7 +3920,7 @@ theorem andCount_s3a : seqAndCount s3aAllSeq = 33 := by decide +kernel
 theorem andCount_s3b : (s3bOps.map Op102.andCount).sum = 42 := by decide +kernel
 theorem andCount_s4_1 : (s4_1Ops.map Op102.andCount).sum = 12 := by decide +kernel
 theorem andCount_s4_1Post : (s4_1PostOps.map Op102.andCount).sum = 0 := by decide +kernel
-theorem andCount_s4_2 : (s4_2Ops.map Op102.andCount).sum = 43 := by decide +kernel
+theorem andCount_s4_2 : (s4_2Ops.map Op102.andCount).sum = 40 := by decide +kernel
 theorem andCount_s4_3 : (s4_3Ops.map Op102.andCount).sum = 98 := by decide +kernel
 theorem andCount_s4_4 : (s4_4Ops.map Op102.andCount).sum = 50 := by decide +kernel
 theorem andCount_s5_1 : (s5_1Ops.map Op102.andCount).sum = 90 := by decide +kernel
@@ -3935,7 +3935,7 @@ theorem andCount_s6b : (s6bOps.map Op102.andCount).sum = 47 := by decide +kernel
 theorem andCount_s6c : (s6cOps.map Op102.andCount).sum = 5 := by decide +kernel
 theorem andCount_s7 : (s7Ops.map Op102.andCount).sum = 23 := by decide +kernel
 
-theorem andCount_allOps102 : (allOps102.map Op102.andCount).sum = 776 := by
+theorem andCount_allOps102 : (allOps102.map Op102.andCount).sum = 773 := by
   unfold allOps102 midOps102 preOps102 postOps102 s3aOps s5_2Ops
     s5_2PostOps s5_2PostInnerOps s5_4Ops
   simp only [map_andCount_append, map_andCount_flatten,
@@ -4051,7 +4051,7 @@ theorem andCount_hop_5 : (hop_5.map Op102.andCount).sum = 0 := rfl
 theorem andCount_hop_6 : (hop_6.map Op102.andCount).sum = 0 := rfl
 theorem andCount_hop_7 : (hop_7.map Op102.andCount).sum = 0 := rfl
 
-theorem andCount_fullK25Ops : (fullK25Ops.map Op102.andCount).sum = 776 := by
+theorem andCount_fullK25Ops : (fullK25Ops.map Op102.andCount).sum = 773 := by
   have h : (fullK25Ops.map Op102.andCount).sum = (allOps102.map Op102.andCount).sum := by
     unfold fullK25Ops allOps102 midPhysicalOps midOps102 stages4_2_to_5_2Core s5_2Ops
     simp only [map_andCount_append,
@@ -4064,11 +4064,11 @@ theorem tCount_s1 : (s1Ops.map Op102.tCount).sum = 188 := by decide +kernel
 theorem tCount_s2a : (s2aOps.map Op102.tCount).sum = 68 := by decide +kernel
 theorem tCount_s2b : (s2bOps.map Op102.tCount).sum = 188 := by decide +kernel
 theorem tCount_s2c : (s2cOps.map Op102.tCount).sum = 0 := by decide +kernel
-theorem tCount_s3a : seqTCount s3aAllSeq = 496 := by decide +kernel
+theorem tCount_s3a : seqTCount s3aAllSeq = 472 := by decide +kernel
 theorem tCount_s3b : (s3bOps.map Op102.tCount).sum = 398 := by decide +kernel
 theorem tCount_s4_1 : (s4_1Ops.map Op102.tCount).sum = 48 := by decide +kernel
 theorem tCount_s4_1Post : (s4_1PostOps.map Op102.tCount).sum = 0 := by decide +kernel
-theorem tCount_s4_2 : (s4_2Ops.map Op102.tCount).sum = 172 := by decide +kernel
+theorem tCount_s4_2 : (s4_2Ops.map Op102.tCount).sum = 160 := by decide +kernel
 theorem tCount_s4_3 : (s4_3Ops.map Op102.tCount).sum = 392 := by decide +kernel
 theorem tCount_s4_4 : (s4_4Ops.map Op102.tCount).sum = 200 := by decide +kernel
 theorem tCount_s5_1 : (s5_1Ops.map Op102.tCount).sum = 360 := by decide +kernel
@@ -4083,7 +4083,7 @@ theorem tCount_s6b : (s6bOps.map Op102.tCount).sum = 188 := by decide +kernel
 theorem tCount_s6c : (s6cOps.map Op102.tCount).sum = 20 := by decide +kernel
 theorem tCount_s7 : (s7Ops.map Op102.tCount).sum = 92 := by decide +kernel
 
-theorem tCount_allOps102 : (allOps102.map Op102.tCount).sum = 3698 := by
+theorem tCount_allOps102 : (allOps102.map Op102.tCount).sum = 3662 := by
   unfold allOps102 midOps102 preOps102 postOps102 s3aOps s5_2Ops
     s5_2PostOps s5_2PostInnerOps s5_4Ops
   simp only [map_tCount_append, map_tCount_flatten,
@@ -4101,7 +4101,7 @@ theorem tCount_hop_5 : (hop_5.map Op102.tCount).sum = 0 := rfl
 theorem tCount_hop_6 : (hop_6.map Op102.tCount).sum = 0 := rfl
 theorem tCount_hop_7 : (hop_7.map Op102.tCount).sum = 0 := rfl
 
-theorem tCount_fullK25Ops : (fullK25Ops.map Op102.tCount).sum = 3698 := by
+theorem tCount_fullK25Ops : (fullK25Ops.map Op102.tCount).sum = 3662 := by
   have h : (fullK25Ops.map Op102.tCount).sum = (allOps102.map Op102.tCount).sum := by
     unfold fullK25Ops allOps102 midPhysicalOps midOps102 stages4_2_to_5_2Core s5_2Ops
     simp only [map_tCount_append,

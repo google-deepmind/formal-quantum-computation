@@ -477,7 +477,7 @@ def SatisfiesArcsinSpacetimeBound (p : ArcsinPrec) (cost : ℕ) : Prop :=
       arcsinSpacetime p rData rAnc ≤ cost
 
 /-- Claimed spacetime cost bound for `arcsinProgram .k25`. -/
-def arcsinK25ConstCost : ℕ := 369800
+def arcsinK25ConstCost : ℕ := 366200
 
 theorem arcsin_k25_const_cost :
     SatisfiesArcsinSpacetimeBound .k25 arcsinK25ConstCost := by
@@ -499,7 +499,7 @@ theorem arcsin_k25_const_cost :
     (castReg (b := 50) hanc rAnc)
   have hmul : (k25DynCircuit v (castReg (b := 50) (by have := hb.1; omega) rData)
       (castReg (b := 50) hanc rAnc)).count PrimitiveGate.T * (2 * 25 + 50) ≤
-      3698 * (2 * 25 + 50) :=
+      3662 * (2 * 25 + 50) :=
     Nat.mul_le_mul_right _ hT
   omega
 

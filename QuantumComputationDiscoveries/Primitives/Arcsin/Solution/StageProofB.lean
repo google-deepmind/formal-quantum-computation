@@ -1616,7 +1616,7 @@ def k25Steps {n : ℕ} (rData : QRegister 50 n) (rAnc : QRegister 50 n) : List (
   fullK25Ops.map (Op102.toStep rData rAnc)
 
 theorem andCount_k25Steps {n : ℕ} (rData : QRegister 50 n) (rAnc : QRegister 50 n) :
-    ((k25Steps rData rAnc).map Step.andCount).sum = 776 := by
+    ((k25Steps rData rAnc).map Step.andCount).sum = 773 := by
   unfold k25Steps
   rw [map_andCount_toStep, andCount_fullK25Ops]
 
@@ -2088,7 +2088,7 @@ def k25DynCircuit {Var : Type} {n : ℕ} (v : Var) (rData : QRegister 50 n) (rAn
 
 theorem count_T_k25DynCircuit {Var : Type} {n : ℕ} (v : Var)
     (rData : QRegister 50 n) (rAnc : QRegister 50 n) :
-    (k25DynCircuit v rData rAnc).count PrimitiveGate.T ≤ 3698 := by
+    (k25DynCircuit v rData rAnc).count PrimitiveGate.T ≤ 3662 := by
   unfold k25DynCircuit
   exact (count_T_compileList102 v rData rAnc fullK25Ops).trans (le_of_eq tCount_fullK25Ops)
 
